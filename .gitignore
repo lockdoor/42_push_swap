@@ -1,0 +1,5 @@
+.DS_Store
+bin
+*.o
+push_swap
+push_swap.dSYM
