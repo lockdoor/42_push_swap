@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:19:32 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/26 15:32:41 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/09/27 13:23:07 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,10 @@ void	lstc_add_back(t_lstc **lst, t_lstc *new)
 	}
 }
 
-t_stack	*init_stack(int *nb, int nb_len)
+void	init_stack(int *nb, size_t nb_len, t_stack **sta, t_stack **stb)
 {
-	t_stack	*new_stack;
 	t_lstc	*lst;
-	int		i;
+	size_t		i;
 
 	lst = NULL;
 	i = nb_len;
@@ -90,11 +89,13 @@ t_stack	*init_stack(int *nb, int nb_len)
 			break ;
 	}
 	if (!lst)
-		return (NULL);
-	new_stack = (t_stack *) malloc (sizeof (t_stack));
-	if (!new_stack)
-		return (NULL);
-	new_stack->head = lst;
-	new_stack->size = nb_len;
-	return (new_stack);
+		return ;
+	*sta = (t_stack *) ft_calloc (sizeof (t_stack), 1);
+	*stb = (t_stack *) ft_calloc (sizeof (t_stack), 1);
+	if (!sta || !stb)
+		return ;
+	(*sta)->head = lst;
+	(*sta)->size = nb_len;
+	(*sta)->name = 'a';
+	(*stb)->name = 'b';
 }
