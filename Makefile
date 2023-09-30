@@ -6,7 +6,7 @@
 #    By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:14:06 by pnamnil           #+#    #+#              #
-#    Updated: 2023/09/27 08:33:15 by pnamnil          ###   ########.fr        #
+#    Updated: 2023/09/30 16:04:12 by pnamnil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ INCLUDE = $(LIBFT_PATH)/includes
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -I$(INCLUDE)
 
-SRCS = main.c debug.c init_stack.c operate.c
+SRCS = main.c debug.c init_stack.c operate.c find_position.c solve.c
+SRCS += check_condition.c calculate.c push_b.c push_a.c utils.c
 OBJS = $(patsubst %.c, bin/%.o, $(SRCS))
 
 bin/%.o: %.c

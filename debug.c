@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:17:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/28 16:04:47 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/09/30 14:57:40 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,11 @@ void	printf_stack(t_lstc *lsta, t_lstc *lstb, size_t a, size_t b)
 		ft_printf ("%d\n", rest->n);
 		rest = rest->next;
 	}
+}
+
+void	print_cal (t_cal *cal)
+{
+	ft_printf ("NUM: %d, cnt: %d, pb: 1, ra: %d, rra: %d, rb: %d, rrb: %d, rs %d, rrs: %d\n",
+		cal->n, (int)cal->cnt, (int)cal->ra, (int)cal->rra, (int)cal->rb, (int)cal->rrb,
+		(int)cal->rs, (int)cal->rrs);
 }
