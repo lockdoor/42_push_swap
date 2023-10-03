@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:43:28 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/30 15:49:29 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:32:25 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,14 @@ void	solve(t_stack *sta, t_stack *stb)
 	push_b (sta, stb);
 	PRINT_STACK
 
-	solve_three (sta);
-	PRINT_STACK
+	if (sta->size == 3)
+	{
+		solve_three (sta);
+		PRINT_STACK		
+	}
 
-	rotate_max_pos (stb);
-	PRINT_STACK
+	// rotate_max_pos (stb);
+	// PRINT_STACK
 	
 	push_a (sta, stb);
 	PRINT_STACK

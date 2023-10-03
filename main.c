@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:21:05 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/30 16:15:59 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:09:47 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 */
 
 #include "push_swap.h"
-#define	SIZE 20
+#define	SIZE 10
 int	main(int argc, char **argv)
 {
 	(void) argc;
@@ -55,7 +55,9 @@ int	main(int argc, char **argv)
 	{
 		// ft_printf ("It is already sort job done!\n");
 		ft_printf ("Error. It is sort!\n");
+		PRINT_STACK
 		return (0);
 	}
+	lstc_clear(&sta->head);
 	return (0);
 }

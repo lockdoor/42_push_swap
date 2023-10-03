@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:46:48 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/30 16:17:12 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:10:24 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define ERR_MESSAGE ft_printf ("Error\n");
 # define PRINT_STACK printf_stack (sta->head, stb->head, sta->size, stb->size);
-// # define PRINT_STACK
+// # define PRINT_STACK ;
 
 typedef struct s_lstc
 {
@@ -73,9 +73,9 @@ void	operate_rrs(t_stack *sta, t_stack *stb);
 void	operate_push(t_stack *from, t_stack *to);
 
 // find_position
-// t_bool	find_min (int a, int b);
-// t_bool	find_max (int a, int b);
-// void	find_position (t_stack *st, t_bool (*find)(int, int));
+t_bool	find_min (int a, int b);
+t_bool	find_max (int a, int b);
+void	find_position (t_stack *st, t_bool (*find)(int, int));
 size_t	find_pos (t_stack *st, t_lstc *to_find);
 size_t	find_right_position_stack_b(t_stack *st, int n);
 
@@ -93,6 +93,7 @@ void	push_a (t_stack *sta, t_stack *stb);
 
 // check_condition
 t_bool	is_sort (t_stack *st);
+t_bool	lstc_is_sort(t_stack *st);
 
 // solve
 void	solve_three (t_stack *st);

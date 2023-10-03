@@ -6,12 +6,12 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:40:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/30 11:29:51 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:03:01 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
+
 t_bool	find_min(int a, int b)
 {
 	return (a < b);
@@ -42,7 +42,7 @@ void	find_position(t_stack *st, t_bool (*find)(int, int))
 	st->mark = node;
 	st->mark_pos = i;
 }
-*/
+
 
 size_t	find_pos(t_stack *st, t_lstc *to_find)
 {

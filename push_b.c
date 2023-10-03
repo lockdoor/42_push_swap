@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 11:21:46 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/30 16:28:12 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/02 11:08:29 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	operate_by_cheep(t_cal *cal, t_stack *sta, t_stack *stb)
 	if (cal->min)
 	{
 		stb->min = stb->head;
-		operate_r (stb);
+		// operate_r (stb);
 	}
 	if (cal->max)
 		stb->max = stb->head;
@@ -57,7 +57,8 @@ void	push_b(t_stack *sta, t_stack *stb)
 	size_t	j; // for count rotate stb
 	t_lstc	*node_a;
 	
-	while (sta->size > 3)
+	// while (sta->size > 3)
+	while (sta->size > 3 && !lstc_is_sort(sta))
 	{
 		init_cal (&cheep);
 		cheep.cnt = INT_MAX;
@@ -104,13 +105,18 @@ void	push_b(t_stack *sta, t_stack *stb)
 				candidate.rrb = stb->size - j;
 			}
 			cnt_candidate(&candidate);
-			print_cal (&candidate);
+
+			/* debug */
+			// print_cal (&candidate);
+			
 			set_cheep (&cheep, &candidate);
 			node_a = node_a->next;
 			i++ ;
 		}
-		ft_printf ("winner is: \n");
-		print_cal (&cheep);
+		/* debug */
+		// ft_printf ("winner is: \n");
+		// print_cal (&cheep);
+		
 		operate_by_cheep (&cheep, sta, stb);
 		PRINT_STACK
 	}

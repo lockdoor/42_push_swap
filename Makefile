@@ -6,7 +6,7 @@
 #    By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:14:06 by pnamnil           #+#    #+#              #
-#    Updated: 2023/09/30 16:04:12 by pnamnil          ###   ########.fr        #
+#    Updated: 2023/10/02 10:56:43 by pnamnil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,9 @@ bin/%.o: %.c
 
 all:	$(NAME)
 	./$(NAME)
+
+cnt:
+	./$(NAME) | wc -l
 	
 $(NAME): libft_make $(OBJS)
 	$(CC) $(CFLAGS) -L$(LIBFT_PATH) -lft $(OBJS) -o $(NAME)
