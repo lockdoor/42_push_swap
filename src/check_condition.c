@@ -6,12 +6,11 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:41:49 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/02 11:27:50 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/06 11:07:27 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 t_bool	is_sort(t_stack *st)
 {
@@ -32,24 +31,34 @@ t_bool	is_sort(t_stack *st)
 }
 
 /* this function is check sort */
-t_bool	lstc_is_sort(t_stack *st)
+t_bool	lstcb_is_sort(t_stack *st)
 {
 	t_lstc	*node;
-	size_t	size;
+	t_lstc	*max;
 
-	find_position (st, find_min);
-	node = st->mark;
-	size = st->size;
-	while (size--)
+	max = find_min_max (st, find_max);
+	node = max;
+	while (node->next != max)
 	{
-		if (node->n > node->next->n)
-			break ;
+		if (node->n < node->next->n)
+			return (FALSE);
 		node = node->next;
 	}
-	if (node == st->mark->prev)
+	return (TRUE);
+}
+
+t_bool	lstca_is_sort(t_stack *st)
+{
+	t_lstc	*node;
+	t_lstc	*min;
+
+	min = find_min_max (st, find_min);
+	node = min;
+	while (node->next != min)
 	{
-		ft_printf ("sta is sort!\n");
-		return (TRUE);
+		if (node->n > node->next->n)
+			return (FALSE);
+		node = node->next;
 	}
-	return (FALSE);
+	return (TRUE);
 }

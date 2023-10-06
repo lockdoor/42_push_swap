@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:40:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/02 11:03:01 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/06 09:54:15 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,43 @@ t_bool	find_max(int a, int b)
 	return (a > b);
 }
 
-void	find_position(t_stack *st, t_bool (*find)(int, int))
+/* use for set min or max of stack */
+t_lstc	*find_min_max(t_stack *st, t_bool (*find)(int, int))
 {
 	t_lstc	*node;
+	t_lstc	*mark;
 	size_t	i;
 
 	if (st->size == 0)
-		return ;
+		return (NULL);
 	node = st->head;
-	st->mark = node;
+	mark = st->head;
 	i = 0;
 	while (i < st->size)
 	{
-		if (find (node->n , st->mark->n))
-			break ;
+		if (find (node->n , mark->n))
+			mark = node;
 		node = node->next;
 		i++ ;
 	}
-	st->mark = node;
-	st->mark_pos = i;
+	return (mark);
 }
 
+/*
+t_lstc	*find_by_index(size_t index, t_stack *st)
+{
+	t_lstc	*node;
 
+	node = st->head;
+	while (index--)
+		node = node->next;
+	return (node);
+}
+*/
+
+
+/* use to find min max */
+/* it return index of position */
 size_t	find_pos(t_stack *st, t_lstc *to_find)
 {
 	size_t	pos;
@@ -51,10 +66,6 @@ size_t	find_pos(t_stack *st, t_lstc *to_find)
 
 	pos = 0;
 	node = st->head;
-	// if (n == 1)
-	// {
-	// 	ft_printf ("%d\n", n > node->n);
-	// }
 	while (node != to_find)
 	{
 		pos++ ;
@@ -63,6 +74,7 @@ size_t	find_pos(t_stack *st, t_lstc *to_find)
 	return (pos);
 }
 
+/* it return index of position */
 size_t	find_right_position_stack_b(t_stack *st, int n)
 {
 	t_lstc	*node;
@@ -70,12 +82,10 @@ size_t	find_right_position_stack_b(t_stack *st, int n)
 
 	node = st->head;
 	pos = 0;
-	// if (n == 1)
-	// {
-	// 	ft_printf ("%d\n", n > node->n);
-	// }
-	while (n < node->n)
+	while (TRUE)
 	{
+		if (n > node->n && n < node->prev->n)
+			break ;
 		pos ++ ;
 		node = node->next;
 	}

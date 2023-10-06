@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:17:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/30 14:57:40 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/05 15:24:51 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ void	printf_lst(t_lstc *lst, size_t size)
 		lst = lst->next;
 	}
 	ft_printf ("\n");
+}
+
+void	printf_one_stack (t_stack *st)
+{
+	printf_lst (st->head, st->size);
+	ft_printf ("NAME: %c\n", st->name);
+	ft_printf (" MAX: %d\n", st->max->n);
+	ft_printf (" MIN: %d\n", st->min->n);
+	ft_printf ("SIZE: %d\n", (int) st->size);
 }
 
 void	printf_stack(t_lstc *lsta, t_lstc *lstb, size_t a, size_t b)
@@ -58,7 +67,7 @@ void	printf_stack(t_lstc *lsta, t_lstc *lstb, size_t a, size_t b)
 
 void	print_cal (t_cal *cal)
 {
-	ft_printf ("NUM: %d, cnt: %d, pb: 1, ra: %d, rra: %d, rb: %d, rrb: %d, rs %d, rrs: %d\n",
+	ft_printf ("NUM: %4d, cnt: %2d, pb: 1, ra: %2d, rra: %2d, rb: %2d, rrb: %2d, rs %2d, rrs: %2d\n",
 		cal->n, (int)cal->cnt, (int)cal->ra, (int)cal->rra, (int)cal->rb, (int)cal->rrb,
 		(int)cal->rs, (int)cal->rrs);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   lisc_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/26 13:19:32 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/27 13:23:07 by pnamnil          ###   ########.fr       */
+/*   Created: 2023/10/03 12:05:10 by pnamnil           #+#    #+#             */
+/*   Updated: 2023/10/06 09:56:43 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,29 +73,4 @@ void	lstc_add_back(t_lstc **lst, t_lstc *new)
 		new->prev->next = new;
 		current->prev = new;
 	}
-}
-
-void	init_stack(int *nb, size_t nb_len, t_stack **sta, t_stack **stb)
-{
-	t_lstc	*lst;
-	size_t		i;
-
-	lst = NULL;
-	i = nb_len;
-	while (i--)
-	{
-		lstc_add_back(&lst, newlstc(*nb++));
-		if (lst == NULL)
-			break ;
-	}
-	if (!lst)
-		return ;
-	*sta = (t_stack *) ft_calloc (sizeof (t_stack), 1);
-	*stb = (t_stack *) ft_calloc (sizeof (t_stack), 1);
-	if (!sta || !stb)
-		return ;
-	(*sta)->head = lst;
-	(*sta)->size = nb_len;
-	(*sta)->name = 'a';
-	(*stb)->name = 'b';
 }

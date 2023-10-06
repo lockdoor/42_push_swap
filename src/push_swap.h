@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:46:48 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/02 11:10:24 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/06 10:48:02 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "libft.h"
 
 # define ERR_MESSAGE ft_printf ("Error\n");
-# define PRINT_STACK printf_stack (sta->head, stb->head, sta->size, stb->size);
-// # define PRINT_STACK ;
+// # define PRINT_STACK printf_stack (sta->head, stb->head, sta->size, stb->size);
+# define PRINT_STACK ;
 
 typedef struct s_lstc
 {
@@ -30,10 +30,10 @@ typedef struct s_stack
 {
 	struct s_lstc	*head;
 	size_t			size;
-	struct s_lstc	*mark;
+	// struct s_lstc	*mark;
 	struct s_lstc	*max;
 	struct s_lstc	*min;
-	size_t			mark_pos;
+	// size_t			mark_pos;
 	char			name;
 }	t_stack;
 
@@ -41,7 +41,6 @@ typedef struct	s_cal
 {
 	int		n;
 	size_t	cnt;
-	size_t	push;
 	size_t	ra;
 	size_t	rb;
 	size_t	rra;
@@ -50,18 +49,17 @@ typedef struct	s_cal
 	size_t	rrs;
 	t_bool	min;
 	t_bool	max;
+	size_t idx_a;
+	size_t idx_b;
+	size_t len_a;
+	size_t len_b;
 }	t_cal;
 
 // debug
 void	printf_lst(t_lstc *lst, size_t size);
 void	printf_stack(t_lstc *lsta, t_lstc *lstb, size_t a, size_t b);
 void	print_cal (t_cal *cal);
-
-// init_stack
-t_lstc	*newlstc(int n);
-void	lstc_clear(t_lstc **lst);
-void	lstc_add_back(t_lstc **lst, t_lstc *new);
-void	init_stack(int *nb, size_t nb_len, t_stack **sta, t_stack **stb);
+void	printf_one_stack (t_stack *st);
 
 // operate
 void	operate_swap(t_stack *st);
@@ -75,9 +73,9 @@ void	operate_push(t_stack *from, t_stack *to);
 // find_position
 t_bool	find_min (int a, int b);
 t_bool	find_max (int a, int b);
-void	find_position (t_stack *st, t_bool (*find)(int, int));
 size_t	find_pos (t_stack *st, t_lstc *to_find);
 size_t	find_right_position_stack_b(t_stack *st, int n);
+t_lstc	*find_min_max(t_stack *st, t_bool (*find)(int, int));
 
 // calculate
 void	init_cal (t_cal *cal);
@@ -85,21 +83,48 @@ void	cnt_candidate (t_cal *cdd);
 void	set_cheep (t_cal *cheep, t_cal *candidate);
 
 // push_b
-void	push_b (t_stack *sta, t_stack *stb);
+void	push_b_until(t_stack *sta, t_stack *stb);
+
+// algorithm_b
+void	rs(t_cal *tmp);
+void	rrs(t_cal *tmp);
+void	rotate_min(t_cal *tmp);
+void	rarrb(t_cal *tmp);
+void	rrarb(t_cal *tmp);
+
+// oprate_a_b
+void	operate_by_champ(t_cal *cal, t_stack *sta, t_stack *stb);
 void	operate_rotate (size_t cnt, t_stack *st, void(*operate)(t_stack *));
+
+// helper
+void	set_zero_rotate(t_cal *tmp);
+size_t	count_operate(t_cal *c);
 
 // push_a
 void	push_a (t_stack *sta, t_stack *stb);
 
 // check_condition
 t_bool	is_sort (t_stack *st);
-t_bool	lstc_is_sort(t_stack *st);
+t_bool	lstca_is_sort(t_stack *st);
+t_bool	lstcb_is_sort(t_stack *st);
+
+// lisc_utils
+t_lstc	*newlstc(int n);
+void	lstc_clear(t_lstc **lst);
+void	lstc_add_back(t_lstc **lst, t_lstc *new);
 
 // solve
-void	solve_three (t_stack *st);
-void	solve (t_stack *sta, t_stack *stb);
+// void	solve_three (t_stack *st);
+// void	solve (t_stack *sta, t_stack *stb);
 
 // utils
-void make_numbers_no_dup (int *nb, size_t size);
+// void make_numbers_no_dup (int *nb, size_t size);
+
+// init_stack
+void	add_args_to_stack(int argc, char **argv, t_stack *sta);
+void	init_stack(int argc, char **argv, t_stack *sta);
+
+//sort_stack
+void    sort_stack(t_stack  *sta);
 
 #endif
