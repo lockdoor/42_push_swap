@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:46:48 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 12:03:43 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 14:20:21 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	push_a (t_stack *sta, t_stack *stb);
 t_bool	is_sort (t_stack *st);
 t_bool	lstca_is_sort(t_stack *st);
 t_bool	lstcb_is_sort(t_stack *st);
+t_bool	ft_is_dup(int *nb, int len);
 
 // lisc_utils
 t_lstc	*newlstc(int n);

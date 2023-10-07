@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:17:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 15:54:23 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 16:51:45 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,3 +71,27 @@ void	print_cal (t_cal *cal)
 		cal->n, (int)cal->cnt, (int)cal->ra, (int)cal->rra, (int)cal->rb, (int)cal->rrb,
 		(int)cal->rs, (int)cal->rrs);
 }
+
+/*
+void	printArray(int *nb, int len)
+{
+	while (len--)
+	{
+		ft_printf("%d", *nb);
+		if(len > 0)
+			ft_printf(", ");
+		nb++ ;
+	}
+	ft_printf("\n");
+}
+
+void	printSprit(char **nb)
+{
+	while (*nb)
+	{
+		ft_printf("%s ", *nb);
+		nb++ ;
+	}
+	ft_printf("\n");
+}
+*/

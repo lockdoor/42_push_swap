@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 04:33:26 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 09:30:44 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 15:30:56 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,12 @@ void    sort_stack(t_stack  *sta)
 	t_stack stb;
 	size_t	index;
 
+	if (sta->size == 2)
+	{
+		if (sta->head->n > sta->head->next->n)
+			operate_swap (sta);
+		return ;
+	}
 	ft_memset (&stb, 0, sizeof(t_stack));
 	stb.name = 'b';
 	if (sta->size > 3 && !lstca_is_sort(sta))
@@ -123,6 +129,8 @@ void    sort_stack(t_stack  *sta)
 		solve_three (sta);
 	if (stb.size)
 		push_a_util (sta, &stb);
+
+	// if have 2 number it not have min max
 	if (!is_sort(sta))
 	{
 		index = find_pos(sta, sta->min);
@@ -131,5 +139,4 @@ void    sort_stack(t_stack  *sta)
 		else
 			operate_rotate(index, sta, operate_r);
 	}
-	// printf_stack (sta->head, stb.head, sta->size, stb.size);
 }

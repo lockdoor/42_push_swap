@@ -6,5 +6,7 @@ push_swap.dSYM
 .vscode
 a.out
 checker_Mac
-./push_swap_tester
-push_swap_tester/
+push_swap_tester
+a.out.dSYM
+log_error
+test.c

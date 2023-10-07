@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 12:04:42 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 16:51:39 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static t_bool	parse_int(char **numbers, int *idx, int *nb)
 	{
 		if (!ft_atoi2(numbers[i], &nb[*idx]))
 		{
-			ft_printf ("Error: Some arguments are not integers!\n");
+			// ERR_MESSAGE
 			return (FALSE);
 		}
 		*idx += 1 ;
@@ -75,8 +75,12 @@ static t_bool	parse_int(char **numbers, int *idx, int *nb)
 	return (TRUE);
 }
 
+
+
 t_bool	parse_args(int argc, char **argv, int *idx, int *nb)
 {
+	(void) 	idx;
+	(void)	nb;
 	int		i;
 	char	**numbers;
 
@@ -86,7 +90,7 @@ t_bool	parse_args(int argc, char **argv, int *idx, int *nb)
 		numbers = ft_split(argv[i], 32);
 		if (!numbers)
 		{
-			ft_printf ("Error: Can not init argument!\n");
+			ERR_MESSAGE
 			return (FALSE);
 		}
 		if (!parse_int (numbers, idx, nb))
@@ -94,9 +98,11 @@ t_bool	parse_args(int argc, char **argv, int *idx, int *nb)
 			ft_free_split (numbers);
 			return (FALSE);
 		}
+		// printSprit(numbers);
 		ft_free_split (numbers);
 		if (*idx >= BUF_SIZE)
 			break ;
 	}
+	// printArray (nb, *idx);
 	return (TRUE);
 }
