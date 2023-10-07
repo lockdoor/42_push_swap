@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:46:48 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 10:48:02 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/06 17:00:16 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define PUSH_SWAP_H
 # include "ft_printf.h"
 # include "libft.h"
+# define BUF_SIZE 500
+# define DEBUG_MODE 1
 
 # define ERR_MESSAGE ft_printf ("Error\n");
 // # define PRINT_STACK printf_stack (sta->head, stb->head, sta->size, stb->size);
-# define PRINT_STACK ;
+# define PRINT_STACK
 
 typedef struct s_lstc
 {
@@ -121,10 +123,14 @@ void	lstc_add_back(t_lstc **lst, t_lstc *new);
 // void make_numbers_no_dup (int *nb, size_t size);
 
 // init_stack
-void	add_args_to_stack(int argc, char **argv, t_stack *sta);
+// void	add_args_to_stack(int argc, char **argv, t_stack *sta);
+void	add_args_to_stack(int argc, int *nb, t_stack *sta);
 void	init_stack(int argc, char **argv, t_stack *sta);
 
 //sort_stack
 void    sort_stack(t_stack  *sta);
+
+// parse_args
+t_bool	parse_args(int argc, char **argv, int *idx, int *nb);
 
 #endif

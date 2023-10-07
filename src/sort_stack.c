@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 04:33:26 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 11:31:48 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/06 16:34:44 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	push_a_util(t_stack *sta, t_stack *stb)
 			cal.idx_a = find_right_position_stack_a (sta, cal.n);
 		}
 		operate_push_a (&cal, sta, stb);
-
+		PRINT_STACK
 		/* debug */
 		if (!lstca_is_sort(sta))
 		{

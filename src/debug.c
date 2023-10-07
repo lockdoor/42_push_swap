@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:17:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/05 15:24:51 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/06 15:54:23 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	printf_lst(t_lstc *lst, size_t size)
 {
 	while (size--)
 	{
-		ft_printf("%d", lst->n);
-		if (size > 0)
-			ft_printf(", ");
+		ft_printf("%d\n", lst->n);
+		// if (size > 0)
+		// 	ft_printf(", ");
 		lst = lst->next;
 	}
 	ft_printf ("\n");
