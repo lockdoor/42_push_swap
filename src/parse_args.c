@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 15:11:52 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 12:04:42 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,20 @@ static t_bool	parse_int(char **numbers, int *idx, int *nb)
 	int	i;
 
 	i = -1;
-	while (numbers[++i] && *idx < BUF_SIZE)
+	while (numbers[++i])
 	{
 		if (!ft_atoi2(numbers[i], &nb[*idx]))
 		{
-			ft_free_split (numbers);
 			ft_printf ("Error: Some arguments are not integers!\n");
 			return (FALSE);
 		}
 		*idx += 1 ;
+		if (*idx >= BUF_SIZE)
+		{
+			// ft_printf ("idx max: %d\n", *idx);
+			// exit (1);
+			break ;
+		}
 	}
 	return (TRUE);
 }
@@ -85,8 +90,13 @@ t_bool	parse_args(int argc, char **argv, int *idx, int *nb)
 			return (FALSE);
 		}
 		if (!parse_int (numbers, idx, nb))
+		{
+			ft_free_split (numbers);
 			return (FALSE);
+		}
 		ft_free_split (numbers);
+		if (*idx >= BUF_SIZE)
+			break ;
 	}
 	return (TRUE);
 }

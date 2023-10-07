@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:26:50 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 09:53:06 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 09:32:12 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,10 @@ void	push_b_until(t_stack *sta, t_stack *stb)
 	
 	stb->min = find_min_max (stb, find_min);
 	stb->max = find_min_max (stb, find_max);
-
-	PRINT_STACK
+	if (DEBUG_MODE)
+	{
+		PRINT_STACK		
+	}
 	while (sta->size > 3 && !lstca_is_sort(sta))
 	{
 		ft_memset (&champ, 0, sizeof(t_cal));
@@ -102,13 +104,17 @@ void	push_b_until(t_stack *sta, t_stack *stb)
 		
 		/*push champ normally*/
 		operate_by_champ (&champ, sta, stb);
-		PRINT_STACK
-		if (!lstcb_is_sort(stb))
+		
+		if (DEBUG_MODE)
 		{
-			printf_stack (sta->head, stb->head, sta->size, stb->size);
-			ft_printf ("max: %d\n", stb->max->n);
-			ft_printf ("Error stack_B not sort");
-			exit (0);
+			PRINT_STACK
+			if (!lstcb_is_sort(stb))
+			{
+				printf_stack (sta->head, stb->head, sta->size, stb->size);
+				ft_printf ("max: %d\n", stb->max->n);
+				ft_printf ("Error stack_B not sort");
+				exit (0);
+			}	
 		}
 	}
 }

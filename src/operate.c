@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 06:59:44 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/09/28 16:39:02 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 12:03:21 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	operate_rs(t_stack *sta, t_stack *stb)
 {
 	rotate (sta);
 	rotate (stb);
-	ft_printf("rs\n");
+	ft_printf("rr\n");
 }
 
 /* reverse_rotate group */
@@ -88,7 +88,7 @@ void	operate_rrs(t_stack *sta, t_stack *stb)
 {
 	reverse_rotate (sta);
 	reverse_rotate (stb);
-	ft_printf("rrs\n");
+	ft_printf("rrr\n");
 }
 
 /* push group */
@@ -134,7 +134,6 @@ void	operate_push(t_stack *from, t_stack *to)
 		f->prev = t->prev;
 		f->next = t;
 		t->prev->next = f;
-		// t->prev->next->next = f;
 		t->prev = f;
 	}
 	to->head = f;

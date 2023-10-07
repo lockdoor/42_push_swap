@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:46:48 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 17:00:16 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 12:03:43 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 # include "ft_printf.h"
 # include "libft.h"
 # define BUF_SIZE 500
-# define DEBUG_MODE 1
+# define DEBUG_MODE 0
 
 # define ERR_MESSAGE ft_printf ("Error\n");
-// # define PRINT_STACK printf_stack (sta->head, stb->head, sta->size, stb->size);
-# define PRINT_STACK
+# define PRINT_STACK printf_stack (sta->head, stb->head, sta->size, stb->size);
 
 typedef struct s_lstc
 {
@@ -32,10 +31,8 @@ typedef struct s_stack
 {
 	struct s_lstc	*head;
 	size_t			size;
-	// struct s_lstc	*mark;
 	struct s_lstc	*max;
 	struct s_lstc	*min;
-	// size_t			mark_pos;
 	char			name;
 }	t_stack;
 

@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:38:37 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 09:39:24 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 09:33:47 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ void	operate_by_champ(t_cal *cal, t_stack *sta, t_stack *stb)
 	operate_rotate (cal->rrb, stb, operate_rr);
 	operate_push (sta, stb);
 	if (cal->min)
-	{
 		stb->min = stb->head;
-		// operate_r (stb);
-	}
 	if (cal->max)
 		stb->max = stb->head;
 }

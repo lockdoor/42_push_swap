@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:40:44 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 09:10:44 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/07 09:26:37 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 			if (!is_sort(&sta))
 			{
 				ft_printf ("Error: on main sta is not sort!\n");
-				// exit (1);
+				exit (1);
 			}
 			printf_one_stack (&sta);
 		}
