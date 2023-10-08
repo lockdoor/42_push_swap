@@ -6,7 +6,7 @@
 #    By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:14:06 by pnamnil           #+#    #+#              #
-#    Updated: 2023/10/06 15:12:37 by pnamnil          ###   ########.fr        #
+#    Updated: 2023/10/08 16:09:33 by pnamnil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -I$(INCLUDE)
 
 SRCS = $(addprefix src/, push_swap.c debug.c lisc_utils.c init_stack.c\
-	sort_stack.c check_condition.c operate.c find_position.c\
-	push_b.c algorithm_b.c operate_a_b.c helper.c parse_args.c)
+	sort_stack.c check_condition.c find_position.c\
+	push_b.c algorithm_b.c operate_a_b.c helper.c parse_args.c\
+	operate_sw.c operate_r.c operate_rr.c operate_p.c)
 OBJS = $(patsubst src/%.c, bin/%.o, $(SRCS))
 
 bin/%.o: src/%.c

@@ -10,3 +10,5 @@ push_swap_tester
 a.out.dSYM
 log_error
 test.c
+prog
+prog.dSYM

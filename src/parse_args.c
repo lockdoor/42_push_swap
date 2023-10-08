@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 16:51:39 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/08 14:08:19 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static t_bool	ft_atoi2(const char *str, int *dst)
 			sign *= -1;
 		str++ ;
 	}
-	if (!ft_isdigit(*str))
-		return (FALSE);
-	while (ft_isdigit(*str))
+	while (*str)
 	{
+		if (!ft_isdigit(*str))
+			return (FALSE);
 		n = (n * 10) + (*str - '0');
 		if ((sign == -1 && n - 1 > INT_MAX) || (sign == 1 && n > INT_MAX))
 			return (FALSE);
@@ -52,35 +52,38 @@ static void	ft_free_split(char **sp)
 	free (sp);
 }
 
-static t_bool	parse_int(char **numbers, int *idx, int *nb)
+static t_bool	handle_parse_int_error(t_list **lst)
 {
-	int	i;
+	ft_lstclear (lst, &free);
+	return (FALSE);
+}
+
+static t_bool	parse_int(char **numbers, t_list **lst)
+{
+	int		i;
+	int		nb;
+	int		*n;
+	t_list	*new;
 
 	i = -1;
 	while (numbers[++i])
 	{
-		if (!ft_atoi2(numbers[i], &nb[*idx]))
-		{
-			// ERR_MESSAGE
-			return (FALSE);
-		}
-		*idx += 1 ;
-		if (*idx >= BUF_SIZE)
-		{
-			// ft_printf ("idx max: %d\n", *idx);
-			// exit (1);
-			break ;
-		}
+		if (!ft_atoi2(numbers[i], &nb))
+			return (handle_parse_int_error (lst));
+		n = (int *) malloc (sizeof(int));
+		if (!n)
+			return (handle_parse_int_error (lst));
+		*n = nb;
+		new = ft_lstnew(n);
+		if (!new)
+			return (handle_parse_int_error (lst));
+		ft_lstadd_back(lst, new);
 	}
 	return (TRUE);
 }
 
-
-
-t_bool	parse_args(int argc, char **argv, int *idx, int *nb)
+t_bool	parse_args(int argc, char **argv, t_list **lst)
 {
-	(void) 	idx;
-	(void)	nb;
 	int		i;
 	char	**numbers;
 
@@ -93,16 +96,12 @@ t_bool	parse_args(int argc, char **argv, int *idx, int *nb)
 			ERR_MESSAGE
 			return (FALSE);
 		}
-		if (!parse_int (numbers, idx, nb))
+		if (!parse_int (numbers, lst))
 		{
 			ft_free_split (numbers);
 			return (FALSE);
 		}
-		// printSprit(numbers);
 		ft_free_split (numbers);
-		if (*idx >= BUF_SIZE)
-			break ;
 	}
-	// printArray (nb, *idx);
 	return (TRUE);
 }

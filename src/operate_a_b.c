@@ -6,13 +6,13 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:38:37 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 09:33:47 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:55:48 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	operate_rotate (size_t cnt, t_stack *st, void(*operate)(t_stack *))
+void	operate_rotate(size_t cnt, t_stack *st, void (*operate)(t_stack *))
 {
 	while (cnt)
 	{
@@ -21,8 +21,8 @@ void	operate_rotate (size_t cnt, t_stack *st, void(*operate)(t_stack *))
 	}
 }
 
-void	operate_rotate_db (size_t cnt, t_stack *sta, t_stack *stb,
-	void(*operate)(t_stack *, t_stack *))
+void	operate_rotate_db(size_t cnt, t_stack *sta, t_stack *stb,
+	void (*operate)(t_stack *, t_stack *))
 {
 	while (cnt)
 	{

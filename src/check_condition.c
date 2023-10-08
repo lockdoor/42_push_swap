@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:41:49 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 14:34:36 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:08:28 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,46 +61,4 @@ t_bool	lstca_is_sort(t_stack *st)
 		node = node->next;
 	}
 	return (TRUE);
-}
-
-static void	ft_bubble_sort(int *nb, int len)
-{
-	int	i;
-	int	tmp;
-
-	while (len - 1 > 0)
-	{
-		i = 0;
-		while (i < len - 1)
-		{
-			if (nb[i] > nb[i+1])
-			{
-				tmp = nb[i];
-				nb[i] = nb[i+1];
-				nb[i+1] = tmp;
-			}
-			i++ ;
-		}
-		len-- ;
-	}
-}
-
-t_bool	ft_is_dup(int *nb, int len)
-{
-	int *n;
-	int i;
-
-	n = malloc (sizeof(int) * len);
-	ft_memcpy(n, nb, sizeof(int) * len);
-	ft_bubble_sort (n, len);
-	i = -1;
-	while (++i < len - 1)
-	{
-		if (n[i] == n[i + 1])
-		{
-			return (TRUE);
-		}
-	}
-	free (n);
-	return (FALSE);
 }

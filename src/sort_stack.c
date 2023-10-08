@@ -6,15 +6,16 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 04:33:26 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 15:30:56 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/08 14:56:13 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	solve_three(t_stack *st)
+static void	solve_three(t_stack *st)
 {
 	int	n[3];
+
 	n[0] = st->head->n;
 	n[1] = st->head->next->n;
 	n[2] = st->head->prev->n;
@@ -38,7 +39,7 @@ void	solve_three(t_stack *st)
 	st->max = st->head->prev;
 }
 
-void	operate_push_a(t_cal *cal, t_stack *sta, t_stack *stb)
+static void	operate_push_a(t_cal *cal, t_stack *sta, t_stack *stb)
 {
 	if (cal->idx_a > cal->len_a / 2)
 		operate_rotate (cal->len_a - cal->idx_a, sta, operate_rr);
@@ -51,11 +52,11 @@ void	operate_push_a(t_cal *cal, t_stack *sta, t_stack *stb)
 		sta->min = sta->head;
 }
 
-size_t	find_right_position_stack_a(t_stack *sta, int n)
+static size_t	find_right_position_stack_a(t_stack *sta, int n)
 {
 	size_t	i;
 	t_lstc	*node;
-	
+
 	i = 0;
 	node = sta->head;
 	while (i < sta->size)
@@ -68,6 +69,35 @@ size_t	find_right_position_stack_a(t_stack *sta, int n)
 	return (i);
 }
 
+static void	push_a_util(t_stack *sta, t_stack *stb)
+{
+	t_cal	cal;
+
+	sta->max = find_min_max (sta, find_max);
+	sta->min = find_min_max (sta, find_min);
+	while (stb->size)
+	{
+		ft_memset(&cal, 0, sizeof(t_cal));
+		cal.len_a = sta->size;
+		cal.n = stb->head->n;
+		if (cal.n > sta->max->n || cal.n < sta->min->n)
+		{
+			cal.idx_a = find_pos (sta, sta->min);
+			if (cal.n > sta->max->n)
+				cal.max = TRUE;
+			else
+				cal.min = TRUE;
+		}
+		else
+		{
+			cal.idx_a = find_right_position_stack_a (sta, cal.n);
+		}
+		operate_push_a (&cal, sta, stb);
+	}
+}
+
+/* with debug mode */
+/*
 void	push_a_util(t_stack *sta, t_stack *stb)
 {
 	t_cal	cal;
@@ -98,25 +128,21 @@ void	push_a_util(t_stack *sta, t_stack *stb)
 			PRINT_STACK
 			if (!lstca_is_sort(sta))
 			{
-				ft_printf ("min: %d, max: %d, index: %d\n", sta->min->n, sta->max->n, (int)cal.idx_a);
+				ft_printf ("min: %d, max: %d, index: %d\n",
+					sta->min->n, sta->max->n, (int)cal.idx_a);
 				printf_stack (sta->head, stb->head, sta->size, stb->size);
 				exit(1);
 			}		
 		}
 	}
 }
+*/
 
-void    sort_stack(t_stack  *sta)
+void	sort_stack(t_stack *sta)
 {
-	t_stack stb;
+	t_stack	stb;
 	size_t	index;
 
-	if (sta->size == 2)
-	{
-		if (sta->head->n > sta->head->next->n)
-			operate_swap (sta);
-		return ;
-	}
 	ft_memset (&stb, 0, sizeof(t_stack));
 	stb.name = 'b';
 	if (sta->size > 3 && !lstca_is_sort(sta))
@@ -129,8 +155,6 @@ void    sort_stack(t_stack  *sta)
 		solve_three (sta);
 	if (stb.size)
 		push_a_util (sta, &stb);
-
-	// if have 2 number it not have min max
 	if (!is_sort(sta))
 	{
 		index = find_pos(sta, sta->min);

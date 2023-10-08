@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:05:10 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 09:56:43 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:54:19 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,11 @@ void	lstc_clear(t_lstc **lst)
 	*lst = NULL;
 }
 
-// should protect if new == NULL, free every thing then return NULL
+/*
+** should protect if new == NULL, free every thing then return NULL
+** do not loop to last node because this is circle link list
+** last node is head->prev
+*/
 void	lstc_add_back(t_lstc **lst, t_lstc *new)
 {
 	t_lstc	*current;

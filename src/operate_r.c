@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper.c                                           :+:      :+:    :+:   */
+/*   operate_r.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 09:41:37 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 15:53:20 by pnamnil          ###   ########.fr       */
+/*   Created: 2023/10/08 16:06:30 by pnamnil           #+#    #+#             */
+/*   Updated: 2023/10/08 16:07:05 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_zero_rotate(t_cal *tmp)
+/* rotate group */
+static void	rotate(t_stack *st)
 {
-	tmp->ra = 0;
-	tmp->rb = 0;
-	tmp->rra = 0;
-	tmp->rrb = 0;
-	tmp->rs = 0;
-	tmp->rrs = 0;
+	if (st->head->next)
+		st->head = st->head->next;
 }
 
-size_t	count_operate(t_cal *c)
+void	operate_r(t_stack *st)
 {
-	return (c->rs + c->rrs + c->ra + c->rb + c->rra + c->rrb + 1);
+	rotate (st);
+	ft_printf("r%c\n", st->name);
+}
+
+void	operate_rs(t_stack *sta, t_stack *stb)
+{
+	rotate (sta);
+	rotate (stb);
+	ft_printf("rr\n");
 }

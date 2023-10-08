@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:30:23 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/06 09:47:21 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:05:55 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rs(t_cal *tmp)
 {
-	set_zero_rotate (tmp);	
+	set_zero_rotate (tmp);
 	if (tmp->idx_a > tmp->idx_b)
 	{
 		tmp->rs = tmp->idx_b;
@@ -34,7 +34,7 @@ void	rrs(t_cal *tmp)
 {
 	size_t	idx_a;
 	size_t	idx_b;
-	
+
 	set_zero_rotate (tmp);
 	idx_a = tmp->len_a - tmp->idx_a;
 	idx_b = tmp->len_b - tmp->idx_b;
@@ -60,7 +60,6 @@ void	rotate_min(t_cal *tmp)
 		tmp->rra = tmp->len_a - tmp->idx_a;
 	else
 		tmp->ra = tmp->idx_a;
-	
 	if (tmp->idx_b > tmp->len_b / 2)
 		tmp->rrb = tmp->len_b - tmp->idx_b;
 	else
@@ -83,4 +82,3 @@ void	rrarb(t_cal *tmp)
 	tmp->rb = tmp->idx_b;
 	tmp->cnt = count_operate (tmp);
 }
-

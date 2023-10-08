@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:40:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/07 15:36:21 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/08 15:52:06 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,20 @@ t_lstc	*find_min_max(t_stack *st, t_bool (*find)(int, int))
 	t_lstc	*mark;
 	size_t	i;
 
-	if (st->size < 3)
+	if (st->size < 2)
 		return (NULL);
-	// if (st->size == 1)
-	// 	return (st->head);
 	node = st->head;
 	mark = st->head;
 	i = 0;
 	while (i < st->size)
 	{
-		if (find (node->n , mark->n))
+		if (find(node->n, mark->n))
 			mark = node;
 		node = node->next;
 		i++ ;
 	}
 	return (mark);
 }
-
-/*
-t_lstc	*find_by_index(size_t index, t_stack *st)
-{
-	t_lstc	*node;
-
-	node = st->head;
-	while (index--)
-		node = node->next;
-	return (node);
-}
-*/
-
 
 /* use to find min max */
 /* it return index of position */
