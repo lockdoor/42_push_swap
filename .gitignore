@@ -7,6 +7,7 @@ push_swap.dSYM
 .vscode
 a.out
 checker_Mac
+checker
 push_swap_tester
 a.out.dSYM
 log_error
