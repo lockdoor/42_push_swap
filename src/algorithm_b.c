@@ -6,12 +6,18 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:30:23 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 15:05:55 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:17:51 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* 
+** this group of function is calculate times by t_cal
+** it' calculate index of a and b for count rotate times
+** and get size of stack for calculate by reverse rotate
+** then set instruct in t_cal and count times spend each algorithm
+*/
 void	rs(t_cal *tmp)
 {
 	set_zero_rotate (tmp);

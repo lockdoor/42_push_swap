@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/09 16:55:10 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:32:46 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,36 @@ static t_bool	parse_int(char **numbers, t_list **lst)
 	return (TRUE);
 }
 
+/* 
+** parse argument
+** first split each argument to string array
+** second parse int each string in array by ft_atoi2
+*/
+t_bool	parse_args(int argc, char **argv, t_list **lst)
+{
+	int		i;
+	char	**numbers;
+
+	i = 0;
+	while (++i < argc)
+	{
+		numbers = ft_split(argv[i], 32);
+		if (!numbers)
+		{
+			ft_printf ("Error\n");
+			return (FALSE);
+		}
+		if (!parse_int (numbers, lst))
+		{
+			ft_free_split (numbers);
+			return (FALSE);
+		}
+		ft_free_split (numbers);
+	}
+	return (TRUE);
+}
+
+/* parse_args with debug mode
 t_bool	parse_args(int argc, char **argv, t_list **lst)
 {
 	int		i;
@@ -109,3 +139,4 @@ t_bool	parse_args(int argc, char **argv, t_list **lst)
 	}
 	return (TRUE);
 }
+*/

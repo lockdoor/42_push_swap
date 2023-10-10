@@ -6,12 +6,13 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 04:33:26 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/09 14:47:51 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:40:46 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* this is hard code to solve if stack size 3 */
 static void	solve_three(t_stack *st)
 {
 	int	n[3];

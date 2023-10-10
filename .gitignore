@@ -8,7 +8,9 @@ push_swap.dSYM
 a.out
 checker_Mac
 checker
+checker.dSYM
 push_swap_tester
+Push-Swap-Tester
 a.out.dSYM
 log_error
 test.c

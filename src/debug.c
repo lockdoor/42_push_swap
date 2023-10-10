@@ -6,12 +6,13 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:17:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/09 16:47:44 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:23:55 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* group of function for debug this program */
 void	printf_lst(t_lstc *lst, size_t size)
 {
 	while (size--)

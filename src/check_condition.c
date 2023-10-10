@@ -6,12 +6,16 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:41:49 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/09 16:30:03 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:22:40 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* 
+** this funtion is check final sort in stack a
+** it's check by assending begin head of stack
+*/
 t_bool	is_sort(t_stack *st)
 {
 	t_lstc	*node;
@@ -32,7 +36,10 @@ t_bool	is_sort(t_stack *st)
 	return (FALSE);
 }
 
-/* this function is check sort */
+/* 
+**	this function is check sort
+**	it's check every positin of stack
+*/
 t_bool	lstcb_is_sort(t_stack *st)
 {
 	t_lstc	*node;

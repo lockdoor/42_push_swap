@@ -6,12 +6,13 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:26:50 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 15:04:25 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:38:40 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* calculate each algorithm to find best choise */
 static void	find_best_algolithm(t_cal *cdd)
 {
 	t_cal	tmp;
@@ -52,6 +53,7 @@ static void	setup_candidate(t_cal *cdd, int cn, t_stack *sta, t_stack *stb)
 		cdd->idx_b = find_right_position_stack_b (stb, cdd->n);
 }
 
+/* calculate each algorithm to find best choise */
 static void	find_best_cdd(t_cal *champ, t_stack *sta, t_stack *stb)
 {
 	t_cal	cdd;
@@ -109,6 +111,7 @@ if (DEBUG_MODE)
 }
 */
 
+/* calculate each number of sta, find champ is spend less times */
 void	push_b_until(t_stack *sta, t_stack *stb)
 {
 	t_cal	champ;

@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:06:30 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/09 14:39:55 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 09:57:06 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* rotate group */
 static void	rotate(t_stack *st)
 {
-	if (st->head->next)
+	if (st->head && st->head->next)
 		st->head = st->head->next;
 }
 

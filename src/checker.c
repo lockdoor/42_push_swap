@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 07:22:00 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 07:32:57 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 08:48:08 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,11 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_memset(&sta, 0, sizeof(t_stack));
 	sta.name = 'a';
-	instruction = NULL;
-	make_instruction (&instruction);
 	init_stack (argc, argv, &sta);
 	if (sta.head)
 	{
+		instruction = NULL;
+		make_instruction (&instruction);
 		operate_instruction (&sta, instruction);
 		if (is_sort (&sta))
 			ft_printf ("OK\n");

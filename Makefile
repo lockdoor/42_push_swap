@@ -6,7 +6,7 @@
 #    By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:14:06 by pnamnil           #+#    #+#              #
-#    Updated: 2023/10/09 16:54:10 by pnamnil          ###   ########.fr        #
+#    Updated: 2023/10/10 08:09:59 by pnamnil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CHECKER = checker
 
 LIBFT_PATH = libft
 INCLUDE = $(LIBFT_PATH)/includes
+LIBFT = -L$(LIBFT_PATH) -lft
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -I$(INCLUDE)
@@ -30,29 +31,26 @@ B_SRCS = $(addprefix src/, checker.c lisc_utils.c init_stack.c parse_args.c\
 	find_position.c)
 B_OBJS = $(patsubst src/%.c, bin/%.o, $(B_SRCS))
 
+
 bin/%.o: src/%.c
 	@mkdir -p bin
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all:	$(NAME)
-# ./$(NAME)
 
-bonus:	libft_make $(B_OBJS)
-	$(CC) $(CFLAGS) -L$(LIBFT_PATH) -lft $(B_OBJS) -o $(CHECKER)
-leak:
-	leaks --atExit -- ./$(NAME)
+bonus:	$(CHECKER)
 
-cnt:
-	./$(NAME) | wc -l
-	
-$(NAME): libft_make $(OBJS)
-	$(CC) $(CFLAGS) -L$(LIBFT_PATH) -lft $(OBJS) -o $(NAME)
-	
-libft_make:
+$(CHECKER): $(B_OBJS)
 	$(MAKE) -C $(LIBFT_PATH)
+	$(CC) $(CFLAGS) $(LIBFT) $(B_OBJS) -o $(CHECKER)
+
+$(NAME): $(OBJS)
+	$(MAKE) -C $(LIBFT_PATH)
+	$(CC) $(CFLAGS) $(LIBFT) -lft $(OBJS) -o $(NAME)
 
 clean:
 	rm -rf bin
+	$(MAKE) -C $(LIBFT_PATH) clean
 
 fclean: clean
 	$(MAKE) -C $(LIBFT_PATH) fclean
@@ -60,4 +58,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all libft_make clean fclean re
+.PHONY: all bonus clean fclean re
