@@ -11,6 +11,8 @@ checker
 checker.dSYM
 push_swap_tester
 Push-Swap-Tester
+traces.txt
+test_check.txt
 a.out.dSYM
 log_error
 test.c

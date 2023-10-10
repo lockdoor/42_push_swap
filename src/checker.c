@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 07:22:00 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 08:48:08 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/10 15:35:03 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	error_exit(t_stack *sta, t_stack *stb, t_list *ins, char *s)
 	lstc_clear (&sta->head);
 	lstc_clear (&stb->head);
 	ft_lstclear (&ins, &free);
-	exit (0);
+	exit (EXIT_FAILURE);
 }
 
 static void	operate_instruction(t_stack *sta, t_list *ins)
