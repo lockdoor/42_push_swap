@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:07:31 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 16:08:02 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 14:48:22 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@ static void	reverse_rotate(t_stack *st)
 		st->head = st->head->prev;
 }
 
-void	operate_rr(t_stack *st)
+void	operate_rr(t_stack *st, t_bool print)
 {
 	reverse_rotate (st);
-	ft_printf("rr%c\n", st->name);
+	if (print)
+		ft_printf("rr%c\n", st->name);
 }
 
-void	operate_rrs(t_stack *sta, t_stack *stb)
+void	operate_rrs(t_stack *sta, t_stack *stb, t_bool print)
 {
 	reverse_rotate (sta);
 	reverse_rotate (stb);
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 }

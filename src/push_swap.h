@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:46:48 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 16:01:37 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:53:10 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include "libft.h"
 # define BUF_SIZE 500
 # define DEBUG_MODE 0
-
-# define ERR_MESSAGE ft_printf ("Error\n");
-# define PRINT_STACK printf_stack (sta->head, stb->head, sta->size, stb->size);
 
 typedef struct s_lstc
 {
@@ -59,15 +56,16 @@ void	printf_lst(t_lstc *lst, size_t size);
 void	printf_stack(t_lstc *lsta, t_lstc *lstb, size_t a, size_t b);
 void	print_cal(t_cal *cal);
 void	printf_one_stack(t_stack *st);
+void	printSprit(char **nb);
 
 // operate
-void	operate_swap(t_stack *st);
-void	operate_ss(t_stack *sta, t_stack *stb);
-void	operate_r(t_stack *st);
-void	operate_rs(t_stack *sta, t_stack *stb);
-void	operate_rr(t_stack *st);
-void	operate_rrs(t_stack *sta, t_stack *stb);
-void	operate_push(t_stack *from, t_stack *to);
+void	operate_swap(t_stack *st, t_bool print);
+void	operate_ss(t_stack *sta, t_stack *stb, t_bool print);
+void	operate_r(t_stack *st, t_bool print);
+void	operate_rs(t_stack *sta, t_stack *stb, t_bool print);
+void	operate_rr(t_stack *st, t_bool print);
+void	operate_rrs(t_stack *sta, t_stack *stb, t_bool print);
+void	operate_push(t_stack *from, t_stack *to, t_bool print);
 
 // find_position
 t_bool	find_min(int a, int b);
@@ -75,11 +73,6 @@ t_bool	find_max(int a, int b);
 size_t	find_pos(t_stack *st, t_lstc *to_find);
 size_t	find_right_position_stack_b(t_stack *st, int n);
 t_lstc	*find_min_max(t_stack *st, t_bool (*find)(int, int));
-
-// calculate
-// void	init_cal (t_cal *cal);
-// void	cnt_candidate (t_cal *cdd);
-// void	set_cheep (t_cal *cheep, t_cal *candidate);
 
 // push_b
 void	push_b_until(t_stack *sta, t_stack *stb);
@@ -93,7 +86,8 @@ void	rrarb(t_cal *tmp);
 
 // oprate_a_b
 void	operate_by_champ(t_cal *cal, t_stack *sta, t_stack *stb);
-void	operate_rotate(size_t cnt, t_stack *st, void (*operate)(t_stack *));
+void	operate_rotate(size_t cnt, t_stack *st, \
+		void (*operate)(t_stack *, t_bool));
 
 // helper
 void	set_zero_rotate(t_cal *tmp);

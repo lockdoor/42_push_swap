@@ -6,13 +6,13 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 06:59:44 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 16:17:45 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:52:22 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	operate_push_h(t_lstc *f, t_stack *to)
+static void	operate_push_h(t_lstc *f, t_stack *to, t_bool print)
 {
 	t_lstc	*t;
 
@@ -34,16 +34,17 @@ static void	operate_push_h(t_lstc *f, t_stack *to)
 		t->prev = f;
 	}
 	to->head = f;
-	to->size +=1;
-	ft_printf ("p%c\n", to->name);
+	to->size += 1;
+	if (print)
+		ft_printf ("p%c\n", to->name);
 }
 
 /* push group */
-void	operate_push(t_stack *from, t_stack *to)
+void	operate_push(t_stack *from, t_stack *to, t_bool print)
 {
 	t_lstc	*f;
 
-	if (from->size == 0 || from->head == NULL)	
+	if (from->size == 0 || from->head == NULL)
 		return ;
 	f = from->head;
 	from->size -= 1;
@@ -63,5 +64,5 @@ void	operate_push(t_stack *from, t_stack *to)
 	}
 	f->next = NULL;
 	f->prev = NULL;
-	operate_push_h(f, to);
+	operate_push_h(f, to, print);
 }

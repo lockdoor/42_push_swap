@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 13:17:06 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 15:50:54 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:47:44 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ void	printArray(int *nb, int len)
 	}
 	ft_printf("\n");
 }
+*/
 
+/*
 void	printSprit(char **nb)
 {
 	while (*nb)

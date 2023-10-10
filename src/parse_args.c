@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 14:08:19 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:55:10 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,12 @@ t_bool	parse_args(int argc, char **argv, t_list **lst)
 	i = 0;
 	while (++i < argc)
 	{
+		if (DEBUG_MODE)
+			ft_printf ("%s\n", argv[i]);
 		numbers = ft_split(argv[i], 32);
 		if (!numbers)
 		{
-			ERR_MESSAGE
+			ft_printf ("Error\n");
 			return (FALSE);
 		}
 		if (!parse_int (numbers, lst))
@@ -101,6 +103,8 @@ t_bool	parse_args(int argc, char **argv, t_list **lst)
 			ft_free_split (numbers);
 			return (FALSE);
 		}
+		if (DEBUG_MODE)
+			printSprit (numbers);
 		ft_free_split (numbers);
 	}
 	return (TRUE);

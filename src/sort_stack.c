@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 04:33:26 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 14:56:13 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 14:47:51 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ static void	solve_three(t_stack *st)
 	n[2] = st->head->prev->n;
 	if (n[0] < n[1] && n[0] < n[2] && n[2] < n[1])
 	{
-		operate_swap (st);
-		operate_r (st);
+		operate_swap (st, TRUE);
+		operate_r (st, TRUE);
 	}
 	else if (n[0] > n[1] && n[1] > n[2] && n[2] < n[1])
 	{
-		operate_swap (st);
-		operate_rr (st);
+		operate_swap (st, TRUE);
+		operate_rr (st, TRUE);
 	}
 	else if (n[0] > n[1] && n[1] < n[2] && n[0] > n[2])
-		operate_r (st);
+		operate_r (st, TRUE);
 	else if (n[0] < n[1] && n[0] > n[2] && n[2] < n[0])
-		operate_rr (st);
+		operate_rr (st, TRUE);
 	else if (n[0] > n[1] && n[1] < n[2] && n[2] > n[0])
-		operate_swap (st);
+		operate_swap (st, TRUE);
 	st->min = st->head;
 	st->max = st->head->prev;
 }
@@ -45,7 +45,7 @@ static void	operate_push_a(t_cal *cal, t_stack *sta, t_stack *stb)
 		operate_rotate (cal->len_a - cal->idx_a, sta, operate_rr);
 	else
 		operate_rotate (cal->idx_a, sta, operate_r);
-	operate_push (stb, sta);
+	operate_push (stb, sta, TRUE);
 	if (cal->max)
 		sta->max = sta->head;
 	if (cal->min)
@@ -146,9 +146,9 @@ void	sort_stack(t_stack *sta)
 	ft_memset (&stb, 0, sizeof(t_stack));
 	stb.name = 'b';
 	if (sta->size > 3 && !lstca_is_sort(sta))
-		operate_push (sta, &stb);
+		operate_push (sta, &stb, TRUE);
 	if (sta->size > 3 && !lstca_is_sort(sta))
-		operate_push (sta, &stb);
+		operate_push (sta, &stb, TRUE);
 	if (sta->size > 3 && !lstca_is_sort(sta))
 		push_b_until (sta, &stb);
 	if (sta->size == 3 && !lstca_is_sort(sta))

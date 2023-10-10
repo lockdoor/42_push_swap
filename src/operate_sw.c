@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:02:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 16:05:38 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 14:41:03 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,17 @@ static void	swap(t_stack *st)
 	st->head = second;
 }
 
-void	operate_swap(t_stack *st)
+void	operate_swap(t_stack *st, t_bool print)
 {
 	swap(st);
-	ft_printf("s%c\n", st->name);
+	if (print)
+		ft_printf("s%c\n", st->name);
 }
 
-void	operate_ss(t_stack *sta, t_stack *stb)
+void	operate_ss(t_stack *sta, t_stack *stb, t_bool print)
 {
 	swap(sta);
 	swap(stb);
-	ft_printf("ss\n");
+	if (print)
+		ft_printf("ss\n");
 }

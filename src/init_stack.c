@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:50:36 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 14:12:29 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:54:50 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,12 @@ void	init_stack(int argc, char **argv, t_stack *sta)
 		return ;
 	if (!parse_args (argc, argv, &lst))
 	{
-		ERR_MESSAGE
+		ft_printf ("Error\n");
 		return ;
 	}
 	if (check_dup (lst))
 	{
-		ERR_MESSAGE
+		ft_printf ("Error\n");
 		return ;
 	}
 	add_args_to_stack (lst, sta);

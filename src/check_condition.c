@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 13:41:49 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 15:08:28 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/09 16:30:03 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_bool	is_sort(t_stack *st)
 
 	node = st->head;
 	size = st->size;
+	if (size == 1 || node == NULL)
+		return (TRUE);
 	while (size--)
 	{
 		if (node->n > node->next->n)
