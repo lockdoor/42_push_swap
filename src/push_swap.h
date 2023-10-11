@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:46:48 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/09 16:53:10 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/11 06:45:05 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	operate_rotate(size_t cnt, t_stack *st, \
 // helper
 void	set_zero_rotate(t_cal *tmp);
 size_t	count_operate(t_cal *c);
+void	init_error_exit(t_stack *sta, t_list **lst);
+void	ft_free_split(char **sp);
 
 // check_condition
 t_bool	is_sort(t_stack *st);

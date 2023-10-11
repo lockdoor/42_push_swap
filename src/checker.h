@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 07:22:34 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/09 16:52:57 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/11 06:47:11 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,8 @@ void	operate_rs(t_stack *sta, t_stack *stb, t_bool print);
 void	operate_rr(t_stack *st, t_bool print);
 void	operate_rrs(t_stack *sta, t_stack *stb, t_bool print);
 void	operate_push(t_stack *from, t_stack *to, t_bool print);
+
+// helper
+void	ft_free_split(char **sp);
 
 #endif

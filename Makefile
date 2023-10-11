@@ -6,7 +6,7 @@
 #    By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/26 10:14:06 by pnamnil           #+#    #+#              #
-#    Updated: 2023/10/10 08:09:59 by pnamnil          ###   ########.fr        #
+#    Updated: 2023/10/11 06:40:50 by pnamnil          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS = $(patsubst src/%.c, bin/%.o, $(SRCS))
 
 B_SRCS = $(addprefix src/, checker.c lisc_utils.c init_stack.c parse_args.c\
 	operate_p.c operate_r.c operate_rr.c operate_sw.c check_condition.c\
-	find_position.c)
+	find_position.c helper.c)
 B_OBJS = $(patsubst src/%.c, bin/%.o, $(B_SRCS))
 
 

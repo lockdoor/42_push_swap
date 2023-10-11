@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:02:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 10:08:11 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/11 07:11:41 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	swap(t_stack *st)
 	t_lstc	*second;
 
 	head = st->head;
-	if (!head && head->next)
+	if (st->size < 2)
 		return ;
 	second = head->next;
 	if (second->next != head)

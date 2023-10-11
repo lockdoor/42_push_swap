@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 07:22:00 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 15:35:03 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/11 07:21:46 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static t_bool	is_valid_instruction(t_stack *sta, t_stack *stb, char *ins)
 		operate_swap (sta, FALSE);
 	else if (ft_strncmp(ins, SB, ft_strlen(SB)) == 0)
 		operate_swap (stb, FALSE);
+	else if (ft_strncmp(ins, SS, ft_strlen(SS)) == 0)
+		operate_ss (sta, stb, FALSE);
 	else if (ft_strncmp(ins, RA, ft_strlen(RA)) == 0)
 		operate_r (sta, FALSE);
 	else if (ft_strncmp(ins, RB, ft_strlen(RB)) == 0)

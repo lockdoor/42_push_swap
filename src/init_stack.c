@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:50:36 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 15:47:02 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/11 06:44:32 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,6 @@ static t_bool	check_dup(t_list *lst)
 	return (is_dup);
 }
 
-static void	error_exit(t_stack *sta, t_list **lst)
-{
-	ft_lstclear (lst, &free);
-	ft_printf ("Error\n");
-	lstc_clear(&sta->head);
-	exit (255);
-}
-
 /* require function to add number to stack */
 /*
 ** if not have argument do nothing
@@ -124,11 +116,11 @@ void	init_stack(int argc, char **argv, t_stack *sta)
 		return ;
 	if (!parse_args (argc, argv, &lst))
 	{
-		error_exit (sta, &lst);
+		init_error_exit (sta, &lst);
 	}
 	if (check_dup (lst))
 	{
-		error_exit (sta, &lst);
+		init_error_exit (sta, &lst);
 	}
 	add_args_to_stack (lst, sta);
 	ft_lstclear (&lst, &free);

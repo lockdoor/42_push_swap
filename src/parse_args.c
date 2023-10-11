@@ -6,11 +6,24 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 10:32:46 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/11 07:13:36 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static char	*ft_atoi2_h(const char *str, int *sign)
+{
+	while ((*str >= 9 && *str <= 13) || *str == ' ')
+		str++ ;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			*sign *= -1;
+		str++ ;
+	}
+	return ((char *) str);
+}
 
 static t_bool	ft_atoi2(const char *str, int *dst)
 {
@@ -19,14 +32,9 @@ static t_bool	ft_atoi2(const char *str, int *dst)
 
 	n = 0;
 	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++ ;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++ ;
-	}
+	str = ft_atoi2_h (str, &sign);
+	if (!ft_isdigit(*str))
+		return (FALSE);
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
@@ -38,18 +46,6 @@ static t_bool	ft_atoi2(const char *str, int *dst)
 	}
 	*dst = n * sign;
 	return (TRUE);
-}
-
-static void	ft_free_split(char **sp)
-{
-	int	i;
-
-	i = -1;
-	while (sp[++i])
-	{
-		free (sp[i]);
-	}
-	free (sp);
 }
 
 static t_bool	handle_parse_int_error(t_list **lst)

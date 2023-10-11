@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 16:07:31 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 09:57:25 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/11 07:15:08 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* reverse_rotate group */
 static void	reverse_rotate(t_stack *st)
 {
-	if (st->head && st->head->prev)
+	if (st->size >= 2)
 		st->head = st->head->prev;
 }
 
