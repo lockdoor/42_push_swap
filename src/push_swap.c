@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:40:44 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/08 14:10:15 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/12 07:51:03 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	ft_memset(&sta, 0, sizeof(t_stack));
 	sta.name = 'a';
 	init_stack (argc, argv, &sta);
-	if (sta.head && sta.size > 1)
+	if (sta.head)
 	{
 		sort_stack (&sta);
 		lstc_clear(&sta.head);

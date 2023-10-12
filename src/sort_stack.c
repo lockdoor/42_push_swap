@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 04:33:26 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/10 10:40:46 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/12 07:50:51 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,8 @@ void	sort_stack(t_stack *sta)
 	t_stack	stb;
 	size_t	index;
 
+	if (sta->size < 2)
+		return ;
 	ft_memset (&stb, 0, sizeof(t_stack));
 	stb.name = 'b';
 	if (sta->size > 3 && !lstca_is_sort(sta))
