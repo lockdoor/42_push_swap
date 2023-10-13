@@ -93,6 +93,16 @@ echo $?
 ./checker
 echo $?
 
+INPUT="sa\nrra\n"
+echo -en $INPUT > mytest
+./checker " 1 0" -01 < mytest
+rm -f mytest
+
+INPUT="sa\nrra\n"
+echo -en $INPUT > mytest
+./checker_Mac " 1 0" -01 < mytest
+rm -f mytest
+
 # ./push_swap
 # echo "Test normal"
 # ./push_swap 6 " 2147483647 0 -2147483648" 5

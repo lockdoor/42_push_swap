@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/11 07:13:36 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/13 08:02:03 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static char	*ft_atoi2_h(const char *str, int *sign)
 
 static t_bool	ft_atoi2(const char *str, int *dst)
 {
-	unsigned long	n;
-	int				sign;
+	long	n;
+	int		sign;
 
 	n = 0;
 	sign = 1;
