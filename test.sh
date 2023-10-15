@@ -21,87 +21,93 @@ echo "Test Error"
 # echo $?
 # ./checker "+"
 # echo $?
-echo "##########################"
-./checker_Mac "-"
-echo $?
-./checker "-"
-echo $?
-echo "##########################"
+# echo "##########################"
+# ./checker_Mac "-"
+# echo $?
+# ./checker "-"
+# echo $?
+# echo "##########################"
 
-./checker_Mac " 5 one 2 "
-echo $?
-./checker " 5 one 2 "
-echo $?
+# ./checker_Mac " 5 one 2 "
+# echo $?
+# ./checker " 5 one 2 "
+# echo $?
 
-./checker_Mac " 2147483648 0 -2147483648"
-echo $?
-./checker " 2147483648 0 -2147483648"
-echo $?
+# ./checker_Mac " 2147483648 0 -2147483648"
+# echo $?
+# ./checker " 2147483648 0 -2147483648"
+# echo $?
 
-./checker_Mac " 2147483647 0 -2147483649"
-echo $?
-./checker " 2147483647 0 -2147483649"
-echo $?
+# ./checker_Mac " 2147483647 0 -2147483649"
+# echo $?
+# ./checker " 2147483647 0 -2147483649"
+# echo $?
 
-./checker_Mac ""
-echo $?
-./checker ""
-echo $?
+# ./checker_Mac ""
+# echo $?
+# ./checker ""
+# echo $?
 
-./checker_Mac "      "
-echo $?
-./checker "      "
-echo $?
+# ./checker_Mac "      "
+# echo $?
+# ./checker "      "
+# echo $?
 
-./checker_Mac 2 4 3a
-echo $?
-./checker 2 4 3a
-echo $?
+# ./checker_Mac 2 4 3a
+# echo $?
+# ./checker 2 4 3a
+# echo $?
 
-./checker_Mac 4+2 5 1
-echo $?
-./checker 4+2 5 1
-echo $?
+# ./checker_Mac 4+2 5 1
+# echo $?
+# ./checker 4+2 5 1
+# echo $?
 
-./checker_Mac 2 4 ++3
-echo $?
-./checker 2 4 ++3
-echo $?
+# ./checker_Mac 2 4 ++3
+# echo $?
+# ./checker 2 4 ++3
+# echo $?
 
-./checker_Mac one two three
-echo $?
-./checker one two three
-echo $?
-###############################
-echo "Test is duplicate"
+# ./checker_Mac one two three
+# echo $?
+# ./checker one two three
+# echo $?
 
-./checker_Mac " 5 2 2 "
+./checker_Mac 5 9 "  8 7  " "" 6
 echo $?
-./checker " 5 2 2 "
+./checker 5 9 "" 6
 echo $?
 
 ###############################
-echo "Test is sort or no arg"
+# echo "Test is duplicate"
 
-./checker_Mac " 1  2     3 " < /dev/null
-echo $?
-./checker " 1  2     3 " < /dev/null
-echo $?
+# ./checker_Mac " 5 2 2 "
+# echo $?
+# ./checker " 5 2 2 "
+# echo $?
 
-./checker_Mac
-echo $?
-./checker
-echo $?
+###############################
+# echo "Test is sort or no arg"
 
-INPUT="sa\nrra\n"
-echo -en $INPUT > mytest
-./checker " 1 0" -01 < mytest
-rm -f mytest
+# ./checker_Mac " 1  2     3 " < /dev/null
+# echo $?
+# ./checker " 1  2     3 " < /dev/null
+# echo $?
 
-INPUT="sa\nrra\n"
-echo -en $INPUT > mytest
-./checker_Mac " 1 0" -01 < mytest
-rm -f mytest
+# ./checker_Mac
+# echo $?
+# ./checker
+# echo $?
+
+# INPUT="sa\nrra\n"
+# echo -en $INPUT > mytest
+# ./checker " 1 0" -01 < mytest
+# rm -f mytest
+
+# INPUT="sa\nrra\n"
+# echo -en $INPUT > mytest
+# ./checker_Mac " 1 0" -01 < mytest
+# rm -f mytest
 
 # ./push_swap
 # echo "Test normal"

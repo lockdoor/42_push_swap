@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 09:41:37 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/11 06:45:16 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/15 11:38:13 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ size_t	count_operate(t_cal *c)
 void	init_error_exit(t_stack *sta, t_list **lst)
 {
 	ft_lstclear (lst, &free);
-	ft_printf ("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	lstc_clear(&sta->head);
 	exit (255);
 }

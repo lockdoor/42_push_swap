@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 07:22:00 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/11 07:21:46 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/15 11:39:13 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	make_instruction(t_list **ins)
 		{
 			free (line);
 			ft_lstclear (ins, &free);
-			ft_printf ("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			break ;
 		}
 		ft_lstadd_back (ins, new);
@@ -66,7 +66,12 @@ static t_bool	is_valid_instruction(t_stack *sta, t_stack *stb, char *ins)
 
 static void	error_exit(t_stack *sta, t_stack *stb, t_list *ins, char *s)
 {
-	ft_printf ("%s", s);
+	int	fd;
+
+	fd = 2;
+	if (ft_memcmp(s, "OK\n", 3))
+		fd = 1;
+	ft_putstr_fd (s, 2);
 	lstc_clear (&sta->head);
 	lstc_clear (&stb->head);
 	ft_lstclear (&ins, &free);

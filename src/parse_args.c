@@ -6,7 +6,7 @@
 /*   By: pnamnil <pnamnil@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:08:56 by pnamnil           #+#    #+#             */
-/*   Updated: 2023/10/13 08:02:03 by pnamnil          ###   ########.fr       */
+/*   Updated: 2023/10/15 11:39:28 by pnamnil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static t_bool	parse_int(char **numbers, t_list **lst)
 	int		*n;
 	t_list	*new;
 
+	if (!*numbers)
+		return (FALSE);
 	i = -1;
 	while (numbers[++i])
 	{
@@ -94,7 +96,7 @@ t_bool	parse_args(int argc, char **argv, t_list **lst)
 		numbers = ft_split(argv[i], 32);
 		if (!numbers)
 		{
-			ft_printf ("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			return (FALSE);
 		}
 		if (!parse_int (numbers, lst))
